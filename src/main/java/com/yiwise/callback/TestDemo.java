@@ -28,7 +28,6 @@ public class TestDemo {
     public static void testPost() {
         String postBody = "{\"username\":\"zhangsan\"}";
 
-        String tenantId = "123";
         String token = "AIGbuK3sOV";
         String encodingAESKey = "INnZzJ/DPbUqqtU2ycEhzL8ewpsCRb9XqHBWHdDCknw";
 
@@ -37,7 +36,7 @@ public class TestDemo {
         String encrypt,signature;
         WXBizMsgCrypt wxBizMsgCrypt;
         try {
-            wxBizMsgCrypt = new WXBizMsgCrypt(token, encodingAESKey, tenantId);
+            wxBizMsgCrypt = new WXBizMsgCrypt(token, encodingAESKey, "");
             String randomStr = wxBizMsgCrypt.getRandomStr();
             encrypt = wxBizMsgCrypt.encrypt(randomStr, postBody);
             signature = SHA1.getSHA1(token, timeStamp, nonce, encrypt);
@@ -65,7 +64,6 @@ public class TestDemo {
     public static void testGet() {
         String replyMsg = "验证接口验签解密是否正确";
 
-        String tenantId = "123";
         String token = "AIGbuK3sOV";
         String encodingAESKey = "INnZzJ/DPbUqqtU2ycEhzL8ewpsCRb9XqHBWHdDCknw";
 
@@ -74,7 +72,7 @@ public class TestDemo {
         String encrypt,signature;
         WXBizMsgCrypt wxBizMsgCrypt;
         try {
-            wxBizMsgCrypt = new WXBizMsgCrypt(token, encodingAESKey, tenantId);
+            wxBizMsgCrypt = new WXBizMsgCrypt(token, encodingAESKey, "");
             String randomStr = wxBizMsgCrypt.getRandomStr();
             encrypt = wxBizMsgCrypt.encrypt(randomStr, replyMsg);
             signature = SHA1.getSHA1(token, timeStamp, nonce, encrypt);

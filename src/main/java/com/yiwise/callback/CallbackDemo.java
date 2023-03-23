@@ -17,8 +17,8 @@ import java.net.URLDecoder;
 public class CallbackDemo {
 
     public static String token = "AIGbuK3sOV";
-    // 取当前企业的tenantId
-    public static String receiveid = "123";
+    // 为空字符 暂无实际意义
+    public static String receiveid = "";
     public static String encodingAesKey = "INnZzJ/DPbUqqtU2ycEhzL8ewpsCRb9XqHBWHdDCknw";
 
     /**
