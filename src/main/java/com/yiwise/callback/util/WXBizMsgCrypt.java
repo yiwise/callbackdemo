@@ -41,7 +41,7 @@ public class WXBizMsgCrypt {
 	 * 构造函数
 	 * @param token 一知后台，开发者设置的token
 	 * @param encodingAesKey 一知后台，开发者设置的EncodingAESKey
-	 * @param receiveid, 不同场景含义不同，回调消息取企业的tenantID
+	 * @param receiveid, 不同场景含义不同，默认""
 	 *
 	 * @throws AesException 执行失败，请查看该异常的错误码和具体的错误信息
 	 */
