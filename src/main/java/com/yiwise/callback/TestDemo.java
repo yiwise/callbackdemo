@@ -77,7 +77,7 @@ public class TestDemo {
             encrypt = wxBizMsgCrypt.encrypt(randomStr, replyMsg);
             signature = SHA1.getSHA1(token, timeStamp, nonce, encrypt);
             encrypt = URLEncoder.encode(encrypt, "UTF-8");
-            signature = URLDecoder.decode(signature, "UTF-8");
+            signature = URLEncoder.encode(signature, "UTF-8");
         } catch (AesException | UnsupportedEncodingException e) {
             throw new RuntimeException(e);
         }

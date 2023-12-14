@@ -44,6 +44,11 @@ public class CallbackDemo {
                              @RequestParam(name = "echostr")String echostr) throws Exception {
         WXBizMsgCrypt wxcpt = new WXBizMsgCrypt(token, encodingAesKey, receiveid);
         // 参数值需要做Urldecode处理
+        // 参数值做Urldecode处理，很多客户对接时候出现过问题 这里详细描述一下
+        // 由于环境不同，有些项目可能做过全局的编码处理，这里可以参考echostr的最后两位参数
+        // 如果最后两位接收到的是两个等于号 "==" 表示已经解码过了 不需要再 Urldecode
+        // 如果最后两位是 %3D%3D 表示需要Urldecode一次 转换成 ==
+        // 如果最后两位是 %253D%253D 表示需要Urldecode俩次 转换成 ==
         String signature = URLDecoder.decode(msgSignature, "UTF-8");
         String echostrDecode = URLDecoder.decode(echostr, "UTF-8");
         String sEchoStr = wxcpt.VerifyURL(signature, timestamp, nonce, echostrDecode);
